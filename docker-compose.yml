@@ -1,41 +1,41 @@
 version: '3.9'
 
 services:
-  aquatics_app:
+  dabsoft_app:
     build: 
       context: .
       dockerfile: Dockerfile
-    image: aquatics
-    container_name: aquatics_app
+    image: dabsoft
+    container_name: dabsoft_app
     volumes:
       - ./:/app
     restart: always
     ports:
       - "8030:80"
     depends_on:
-      - aquatics_db
-      - aquatics_phpmyadmin
+      - dabsoft_db
+      - dabsoft_phpmyadmin
     environment:
       - DB_CONNECTION=mysql
-      - DB_HOST=aquatics_db
+      - DB_HOST=dabsoft_db
       - DB_PORT=3306
-      - DB_DATABASE=aquatics
+      - DB_DATABASE=dabsoft
       - MYSQL_USER=local_dev
       - MYSQL_PASSWORD=password
     networks:
       - backend
 
-  composer_aquatics:
+  composer_dabsoft:
     image: composer:latest
-    container_name: composer_aquatics
+    container_name: composer_dabsoft
     volumes:
       - ./:/app/
     working_dir: /app/
     entrypoint: [ 'composer' ]
 
-  npm_aquatics:
+  npm_dabsoft:
     image: node:current-alpine
-    container_name: npm_aquatics
+    container_name: npm_dabsoft
     volumes:
       - ./:/app/
     ports:
@@ -43,38 +43,38 @@ services:
     working_dir: /app/
     entrypoint: [ 'npm' ]
 
-  aquatics_db:
+  dabsoft_db:
     image: mysql:8.0
-    container_name: aquatics_db
+    container_name: dabsoft_db
     volumes:
-      - aquatics_data:/var/lib/mysql
+      - dabsoft_data:/var/lib/mysql
     restart: always
     tty: true
     environment:
       - MYSQL_ROOT_PASSWORD=password_root
-      - MYSQL_DATABASE=aquatics
+      - MYSQL_DATABASE=dabsoft
       - MYSQL_USER=local_dev
       - MYSQL_PASSWORD=password
     networks:
       - backend
 
-  aquatics_phpmyadmin:
+  dabsoft_phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: aquatics_phpmyadmin
+    container_name: dabsoft_phpmyadmin
     restart: always
     ports:
       - "8031:80"
     depends_on:
-      - aquatics_db
+      - dabsoft_db
     environment:
-      - PMA_HOST=aquatics_db
+      - PMA_HOST=dabsoft_db
       - MYSQL_ROOT_PASSWORD=password_root
     networks:
       - backend
 
 
 volumes:
-  aquatics_data:
+  dabsoft_data:
 
 
 networks:
