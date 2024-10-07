@@ -1,3 +1,3 @@
 @props(['width', 'height'])
 
-<img src="/img/logo.jpg" alt="" width="{{$width}}" height="{{$height}}">
+<img src="/img/dabsoft-logo.jpeg" alt="" width="{{$width}}" height="{{$height}}">

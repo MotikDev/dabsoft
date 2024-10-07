@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-sec-dark sm:mt-4">
+<nav x-data="{ open: false }" class="bg-gray-50 sm:mt-4">
 
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
@@ -9,7 +9,7 @@
                     <a href="">
                         <x-application-logo :width="60" :height="60"/>
                     </a>
-                    <span class="ml-2 font-black text-xl text-white">
+                    <span class="ml-2 font-black text-xl text-gray-800">
                         {{ config('app.name') }}
                     </span>
                 </div>
@@ -19,17 +19,11 @@
                 <x-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')">
                     {{ __('Home') }}
                 </x-nav-link>
-                <x-nav-link href="{{ route('catalogue') }}" :active="request()->routeIs('catalogue')">
-                    {{ __('Catalogue') }}
-                </x-nav-link>
                 <x-nav-link href="{{ route('about-us') }}" :active="request()->routeIs('about-us')">
                     {{ __('About Us') }}
                 </x-nav-link>
-                <x-nav-link href="{{ route('facilities') }}" :active="request()->routeIs('facilities')">
-                    {{ __('Facilities') }}
-                </x-nav-link>
                 <x-nav-link href="{{ route('terms') }}" :active="request()->routeIs('terms')">
-                    {{ __('Terms and Conditions') }}
+                    {{ __('T&C') }}
                 </x-nav-link>
                 <x-nav-link href="{{ route('contact-us') }}" :active="request()->routeIs('contact-us')">
                     {{ __('Contact Us') }}
@@ -59,26 +53,15 @@
                 <x-responsive-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')">
                     {{ __('Home') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link href="{{ route('catalogue') }}" :active="request()->routeIs('catalogue')">
-                    {{ __('Catalogue') }}
-                </x-responsive-nav-link>
                 <x-responsive-nav-link href="{{ route('about-us') }}" :active="request()->routeIs('about-us')">
                     {{ __('About Us') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link href="{{ route('facilities') }}" :active="request()->routeIs('facilities')">
-                    {{ __('Facilities') }}
-                </x-responsive-nav-link>
                 <x-responsive-nav-link href="{{ route('terms') }}" :active="request()->routeIs('terms')">
-                    {{ __('Terms and Conditions') }}
+                    {{ __('T&C') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link href="{{ route('contact-us') }}" :active="request()->routeIs('contact-us')">
                     {{ __('Contact Us') }}
                 </x-responsive-nav-link>
-                <span class="flex">
-                    <a href="{{ route('login') }}" class="bg-gradient-to-r from-pry to-phd text-white py-3 px-6 w-11/12 mx-auto text-center rounded mt-3">
-                        My Event
-                    </a>
-                </span>
             </div>
         </div>
     </div>

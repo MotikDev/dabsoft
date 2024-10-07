@@ -34,7 +34,7 @@
 
     </head>
 
-    <body class="bg-sec-dark min-h-screen">
+    <body class="bg-gray-50 min-h-screen">
         <x-guest-nav />
 
         <div class="font-sans text-gray-900 antialiased">

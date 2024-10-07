@@ -25,6 +25,24 @@
 </div> -->
 
 
+<section class="bg-pry py-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <h2 class="text-2xl font-extrabold text-white sm:text-3xl">
+        Don’t wait—invest in your future today!
+      </h2>
+      <p class="mt-4 text-lg text-gray-200">
+        Contact us now to learn more and start your journey to land ownership.
+      </p>
+      <div class="mt-6">
+        <a href="/contact-us" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-pry bg-white hover:bg-gray-100">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
 
@@ -42,12 +60,12 @@
                 <li> 
                     <a href="{{ route('about-us') }}"> About us </a> 
                 </li>
-                <li> 
+                <!-- <li> 
                     <a href="{{ route('catalogue') }}"> Catalogue </a> 
-                </li>
-                <li> 
+                </li> -->
+                <!-- <li> 
                     <a href="{{ route('facilities') }}"> Facilities </a> 
-                </li>
+                </li> -->
                 <li> 
                     <a href="{{ route('terms') }}"> Terms and Conditions </a> 
                 </li>
@@ -61,16 +79,16 @@
         <div class="basis-1/2">
             <h2 class="text-xl font-bold text-purple-950 mb-4">Contact Us</h2>
             <p>
-                Phone: +234-803-917-5433
+                Phone: +234-803-2080-503
             </p>
             <p>
-                Email: fenagoh@yahoo.com
+                Email: info@dabsoft.com
             </p>
         </div>
         <div class="basis-1/2">
             <h2 class="text-xl font-bold text-purple-950 mb-4">Visit Us</h2>
             <p>
-                Office Address: 2 TITILOPE OLLEY CLOSE, AYONUSI ESTATE, IKORODU, LAGOS, NIGERIA.
+                Office Address: KM 7, Idiroko Road, Ota, Ogun State, Nigeria.
             </p>
         </div>
     </div>
