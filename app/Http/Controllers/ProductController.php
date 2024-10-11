@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::latest()->take(6)->get();
 
         foreach ($products as $product) {
             $product->slug_url = Str::slug($product->title);

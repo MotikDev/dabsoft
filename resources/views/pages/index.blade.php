@@ -118,89 +118,25 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- @foreach ($products as $product)
-                    <div class="product">
-                        @if(is_array($product->photos))
-                            <div class="product-photos">
-                                @foreach ($product->photos as $photo)
-                                    <img src="{{ asset('storage/' . $photo) }}" alt="{{ $product->title }}" class="w-full h-full object-cover">
-                                @endforeach
+                    @php $count = 0; @endphp
+                    @foreach ($products as $product)
+                        @php $count++; @endphp
+                        <a href="{{ route('show-property', ['property' => $product->id, 'title' => $product->slug_url]) }}">
+                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                <div class="h-64 w-full">
+                                    <img class="w-full h-full object-cover" src="{{ asset($product->photos[0]) }}" alt="{{ $product->title }}">
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-lg font-medium text-gray-900">{{ $product->title }}</h3>
+                                    <p class="mt-2 text-gray-500">{{ $product->summary }}</p>
+                                </div>
                             </div>
+                        </a>
+                        @if ($count == 6)
+                            @php break; @endphp
                         @endif
-                    </div>
-                @endforeach -->
+                    @endforeach
 
-                <!-- Product 1 -->
-                 <a href="{{route('show-property', ['property' => $products[0]->id, 'title' => $products[0]->slug_url])}}">
-                     <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                         <div class="h-64 w-full">
-                            <img class="w-full h-full object-cover" src="{{asset($products[0]->photos[0])}}" alt="Product 1">
-                         </div>
-                         <div class="p-6">
-                            <h3 class="text-lg font-medium text-gray-900">{{$products[0]->title}}</h3>
-                            <p class="mt-2 text-gray-500">{{$products[0]->summary}}</p>
-                         </div>
-                     </div>
-                 </a>
-
-                <!-- Product 2 -->
-                <a href="{{route('show-property', ['property' => $products[1]->id, 'title' => $products[1]->slug_url])}}">
-                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                        <div class="h-64 w-full">
-                            <img class="w-full h-full object-cover" src="{{asset($products[1]->photos[0])}}" alt="Product 2">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg font-medium text-gray-900">{{$products[1]->title}}</h3>
-                            <p class="mt-2 text-gray-500">{{$products[1]->summary}}</p>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Product 3 -->
-                <a href="{{route('show-property', ['property' => $products[2]->id, 'title' => $products[2]->slug_url])}}">
-                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                        <div class="h-64 w-full">
-                            <img class="w-full h-full object-cover" src="{{asset($products[2]->photos[0])}}" alt="Product 3">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg font-medium text-gray-900">{{$products[2]->title}}</h3>
-                            <p class="mt-2 text-gray-500">{{$products[2]->summary}}</p>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Product 4 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="h-64 w-full">
-                        <img class="w-full h-full object-cover" src="/img/feature4.jpeg" alt="Product 4">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-medium text-gray-900">Cozy Cottage</h3>
-                        <p class="mt-2 text-gray-500">A quaint and cozy cottage perfect for a peaceful getaway or investment property.</p>
-                    </div>
-                </div>
-
-                <!-- Product 5 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="h-64 w-full">
-                        <img class="w-full h-full object-cover" src="/img/feature5.jpeg" alt="Product 5">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-medium text-gray-900">Beachfront Estate</h3>
-                        <p class="mt-2 text-gray-500">A stunning beachfront property offering direct access to the sea and spectacular views.</p>
-                    </div>
-                </div>
-
-                <!-- Product 6 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="h-64 w-full">
-                        <img class="w-full h-full object-cover" src="/img/feature6.jpeg" alt="Product 6">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-medium text-gray-900">Rustic Farmhouse</h3>
-                        <p class="mt-2 text-gray-500">A charming farmhouse that blends rustic beauty with modern comforts in a tranquil setting.</p>
-                    </div>
-                </div>
 
                 </div>
             </div>
