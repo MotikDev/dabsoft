@@ -68,11 +68,11 @@
                         <textarea name="description" id="description" cols="30" rows="10" class="block mt-1 mb-2 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 border-2 rounded-md shadow-sm" required autocomplete="" >{{old('description')}}</textarea>
                     </div>
 
+
                     <div>
                         <x-label for="photos" value="{{ __('Photos') }}" />
-
                         <!-- Photos File Input -->
-                        <input type="file" id="photos" class="hidden" wire:model.live="photos" x-ref="photos" multiple name="photos[]" 
+                        <input type="file" id="photos" class="hidden" wire:model.live="photos" x-ref="photos" multiple name="photos[]" accept="image/*"
                             x-on:change="
                                 Array.from($refs.photos.files).forEach(file => {
                                     const reader = new FileReader();
@@ -82,8 +82,6 @@
                                     reader.readAsDataURL(file);
                                 });
                             " />
-
-                        <!-- Current Photos Preview -->
                         <div class="mt-2 flex space-x-2">
                             <template x-for="photo in photosPreview" :key="photo">
                                 <div class="w-20 h-20 bg-cover bg-no-repeat bg-center rounded-full" 
@@ -91,9 +89,31 @@
                                 </div>
                             </template>
                         </div>
-
                         <x-secondary-button class="mt-1 me-2" type="button" x-on:click.prevent="$refs.photos.click()">
                             {{ __('Select Photos') }}
+                        </x-secondary-button>
+                    </div>
+
+                    <!-- Video File Upload -->
+                    <div class="mt-4">
+                        <x-label for="videos" value="{{ __('Videos') }}" />
+                        <input type="file" id="videos" class="hidden" x-ref="videos" multiple name="videos[]" accept="video/*"
+                            x-on:change="
+                                Array.from($refs.videos.files).forEach(file => {
+                                    const reader = new FileReader();
+                                    reader.onload = (e) => {
+                                        videoPreview.push(e.target.result);
+                                    };
+                                    reader.readAsDataURL(file);
+                                });
+                            " />
+                        <div class="mt-2 flex space-x-2">
+                            <template x-for="video in videoPreview" :key="video">
+                                <video controls class="w-20 h-20" x-bind:src="video"></video>
+                            </template>
+                        </div>
+                        <x-secondary-button class="mt-1" type="button" x-on:click.prevent="$refs.videos.click()">
+                            {{ __('Select Videos') }}
                         </x-secondary-button>
                     </div>
 
@@ -109,10 +129,10 @@
     </div>
 
     <script>
-        // Alpine.js data initialization for handling multiple images
         document.addEventListener('alpine:init', () => {
             Alpine.data('photoUpload', () => ({
                 photosPreview: [],
+                videoPreview: [],
             }));
         });
     </script>

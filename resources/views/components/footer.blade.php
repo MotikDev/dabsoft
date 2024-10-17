@@ -29,7 +29,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center">
       <h2 class="text-2xl font-extrabold text-white sm:text-3xl">
-        Don’t wait—invest in your future today!
+        Don't wait—invest in your future today!
       </h2>
       <p class="mt-4 text-lg text-gray-200">
         Contact us now to learn more and start your journey to land ownership.
@@ -60,12 +60,6 @@
                 <li> 
                     <a href="{{ route('about-us') }}"> About us </a> 
                 </li>
-                <!-- <li> 
-                    <a href="{{ route('catalogue') }}"> Catalogue </a> 
-                </li> -->
-                <!-- <li> 
-                    <a href="{{ route('facilities') }}"> Facilities </a> 
-                </li> -->
                 <li> 
                     <a href="{{ route('terms') }}"> Terms and Conditions </a> 
                 </li>
@@ -79,10 +73,10 @@
         <div class="basis-1/2">
             <h2 class="text-xl font-bold text-purple-950 mb-4">Contact Us</h2>
             <p>
-                Phone: +234-803-2080-503
+                Phone: <a href="tel:+2348032080503">+234-803-2080-503</a>
             </p>
             <p>
-                Email: info@dabsoft.com
+                Email: info@dabsoftglobal.com
             </p>
         </div>
         <div class="basis-1/2">

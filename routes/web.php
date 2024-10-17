@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,7 @@ Route::get('/contact-us', function () {
 Route::get('/property/{property}/{title}', [ProductController::class, 'show'])->name('show-property');
 Route::get('/property/{type}', [ProductController::class, 'showCategory'])->name('show-category');
 Route::post('/property/inquiry', [ProductController::class, 'store'])->name('inquiry.store');
+Route::post('contact-us', [ContactFormController::class, 'store'])->name('contact.submit');
 
 
 

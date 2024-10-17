@@ -12,10 +12,10 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/devextreme-quill/1.6.2/dx-quill.min.js"></script>
-<link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/21.1.4/css/dx.light.css">
-<script type="text/javascript" src="https://cdn3.devexpress.com/jslib/23.1.3/js/dx.all.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/devextreme-quill/1.6.2/dx-quill.min.js"></script>
+        <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/21.1.4/css/dx.light.css">
+        <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/23.1.3/js/dx.all.js"></script>
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])

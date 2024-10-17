@@ -31,6 +31,7 @@ class StoreProductRequest extends FormRequest
             'sqm' => 'required|numeric',
             // 'photos' => 'required', // Required field for multiple files
             'photos.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'videos.*' => 'mimes:mp4,mov,avi,flv|max:20000', 
         ];
     }
 }

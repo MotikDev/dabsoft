@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->take(6)->get();
+        $products = Product::latest()->take(12)->get();
 
         foreach ($products as $product) {
             $product->slug_url = Str::slug($product->title);
@@ -47,14 +47,23 @@ class ProductController extends Controller
         $product->square_meter = $validated['sqm'];
         $product->user_id = auth()->user()->id;
 
-        $photos = [];
-        foreach ($request->file('photos') as $photo) {
-            $path = $photo->store('photos', 'public');
-            $photos[] = $path;
+        $mediaPaths = [];
+        
+        if ($request->hasFile('photos')) {
+            foreach ($request->file('photos') as $photo) {
+                $path = $photo->store('photos', 'public');
+                $mediaPaths[] = $path;
+            }
         }
 
-        $product->photos = $photos;
+        if ($request->hasFile('videos')) {
+            foreach ($request->file('videos') as $video) {
+                $path = $video->store('videos', 'public');
+                $mediaPaths[] = $path;
+            }
+        }
 
+        $product->photos = $mediaPaths;
         $product->save();
 
         return redirect()->back()->with('status', 'Product added successfully!');

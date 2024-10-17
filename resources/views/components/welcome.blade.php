@@ -2,7 +2,7 @@
     <x-application-logo class="block h-12 w-auto" :width="60" :height="60" />
 
     <h1 class="mt-8 text-2xl font-medium text-gray-900">
-        Welcome to Dabsoft Global Limited's dashboard!
+        Welcome to DABSOFT GLOBAL LINK LTD's dashboard!
     </h1>
 
     <p class="mt-6 text-gray-500 leading-relaxed">

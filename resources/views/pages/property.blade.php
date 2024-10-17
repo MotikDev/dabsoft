@@ -48,7 +48,14 @@
         <div class="carousel mb-4">
             @foreach ($property->photos as $image)
                 <div>
-                    <img src="{{ asset($image) }}" alt="{{ $property->title }}" class="rounded-lg shadow-md w-full max-h-96 sm:max-h-[32rem]">
+                    @if (Str::startsWith($image, 'photos'))
+                        <img src="{{ asset($image) }}" alt="{{ $property->title }}" class="rounded-lg shadow-md w-full max-h-96 sm:max-h-[32rem]">
+                    @elseif (Str::startsWith($image, 'videos'))
+                        <video controls class="rounded-lg shadow-md w-full max-h-96 sm:max-h-[32rem]">
+                            <source src="{{ asset($image) }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    @endif
                 </div>
             @endforeach
         </div>
@@ -57,18 +64,32 @@
         <div class="thumbnail-slider">
             @foreach ($property->photos as $image)
                 <div class="slick-thumbnail">
-                    <img src="{{ asset($image) }}" alt="Thumbnail" class="rounded-md shadow-sm">
+                    @if (Str::startsWith($image, 'photos'))
+                        <img src="{{ asset($image) }}" alt="Thumbnail" class="rounded-md shadow-sm">
+                    @elseif (Str::startsWith($image, 'videos'))
+                        <video controls class="rounded-md shadow-sm" style="width: 100%; height: auto;">
+                            <source src="{{ asset($image) }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    @endif
                 </div>
             @endforeach
         </div>
+
 
         <!-- Property Description -->
         <pre class="text-wrap text-lg text-gray-700 my-8">{{ $property->description }}</pre>
 
         <!-- User Details Form -->
-        <form action="{{ route('inquiry.store') }}" method="POST" class="bg-white p-6 rounded-lg shadow-md mt-8">
+        <form action="{{ route('contact.submit') }}" method="POST" class="bg-white p-6 rounded-lg shadow-md mt-8">
             @csrf
             <h2 class="text-2xl font-semibold mb-4">Interested? Get in touch with us!</h2>
+            
+            @if (session('status'))
+                <div class="mb-4 font-medium text-sm text-green-600">
+                    {{ session('status') }}
+                </div>
+            @endif
 
             <!-- Name -->
             <div class="mb-4">
@@ -79,7 +100,7 @@
             <!-- Phone -->
             <div class="mb-4">
                 <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
-                <input type="text" id="phone" name="phone" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" placeholder="Your phone number">
+                <input type="text" id="phone" name="subject" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" placeholder="Your phone number">
             </div>
 
             <!-- Email -->
@@ -93,6 +114,11 @@
                 <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
                 <textarea id="message" name="message" rows="4" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">Hello, I'm interested in {{ $property->title }}. Please get in touch with me.</textarea>
             </div>
+
+            <!-- Add reCAPTCHA widget here -->
+            {!!  GoogleReCaptchaV3::render(['contact_us_id' => 'contact_us']) !!}
+            <div id="contact_us_id"></div>
+            <x-input-error for="contact_us_id" :messages="$errors->get('g-recaptcha-response')" class="mt-2" />
 
             <!-- Submit Button -->
             <button type="submit" class="w-full bg-pry text-white p-2 rounded-md shadow-md hover:bg-pry-light transition">Submit</button>

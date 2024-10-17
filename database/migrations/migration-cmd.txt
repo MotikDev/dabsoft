@@ -1,4 +1,5 @@
 php artisan migrate:refresh --path=/database/migrations/2024_10_05_144419_create_products_table.php
+php artisan migrate:refresh --path=/database/migrations/2024_10_17_014932_create_contact_forms_table.php
 
 
 ### php artisan make:model Product -crRm

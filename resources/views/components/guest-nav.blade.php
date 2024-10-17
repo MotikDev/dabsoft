@@ -6,7 +6,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="">
+                    <a href="{{ route('index') }}">
                         <x-application-logo :width="60" :height="60"/>
                     </a>
                     <span class="ml-2 font-black text-xl text-gray-800">

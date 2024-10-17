@@ -132,9 +132,6 @@
                                 </div>
                             </div>
                         </a>
-                        @if ($count == 6)
-                            @php break; @endphp
-                        @endif
                     @endforeach
 
 
